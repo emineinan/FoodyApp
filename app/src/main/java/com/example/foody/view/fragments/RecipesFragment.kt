@@ -11,9 +11,14 @@ class RecipesFragment : Fragment() {
     private var _binding: FragmentRecipesBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         _binding = FragmentRecipesBinding.inflate(inflater, container, false)
+
+        binding.shimmerRecyclerView.showShimmer()
+        
         return binding.root
     }
 
