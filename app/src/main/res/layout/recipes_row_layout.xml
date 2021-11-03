@@ -54,7 +54,7 @@
                     android:layout_marginEnd="12dp"
                     android:ellipsize="end"
                     android:maxLines="2"
-                    android:text="Lorem Ipsum"
+                    android:text="@{result.title}"
                     android:textColor="@color/darker"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -70,7 +70,7 @@
                     android:layout_marginTop="12dp"
                     android:ellipsize="end"
                     android:maxLines="3"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    android:text="@{result.summary}"
                     android:textColor="@color/darkGray"
                     app:layout_constraintEnd_toEndOf="@+id/textViewRecipeTitle"
                     app:layout_constraintStart_toStartOf="@+id/textViewRecipeTitle"
@@ -93,6 +93,7 @@
 
                 <TextView
                     android:id="@+id/textViewFavorite"
+                    setNumberOfLikes="@{result.aggregateLikes}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="100"
@@ -113,6 +114,7 @@
 
                 <TextView
                     android:id="@+id/textViewDuration"
+                    setNumberOfMinutes="@{result.readyInMinutes}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
@@ -124,6 +126,7 @@
 
                 <ImageView
                     android:id="@+id/imageViewVegan"
+                    applyVeganColor="@{result.vegan}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="@+id/textViewVegan"
@@ -133,10 +136,11 @@
 
                 <TextView
                     android:id="@+id/textViewVegan"
+                    applyVeganColor="@{result.vegan}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:text="100"
+                    android:text="Vegan"
                     android:textAlignment="center"
                     app:layout_constraintStart_toEndOf="@+id/textViewDuration"
                     app:layout_constraintTop_toBottomOf="@+id/imageViewVegan" />
