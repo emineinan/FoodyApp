@@ -24,8 +24,7 @@ import javax.inject.Inject
 class RecipesViewModel @Inject constructor(
     application: Application,
     private val dataStoreRepository: DataStoreRepository
-) :
-    AndroidViewModel(application) {
+) : AndroidViewModel(application) {
 
     private var mealType = DEFAULT_MEAL_TYPE
     private var dietType = DEFAULT_DIET_TYPE
