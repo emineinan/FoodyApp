@@ -3,8 +3,8 @@ package com.example.foody.view.fragments
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.SearchView
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -44,7 +44,10 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
     ): View? {
         _binding = FragmentRecipesBinding.inflate(inflater, container, false)
 
+        //Set menu
         setHasOptionsMenu(true)
+
+        //Set adapter
         setAdapter()
 
         recipesViewModel.readBackOnline.observe(viewLifecycleOwner, {
@@ -127,6 +130,32 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
         showShimmerEffect()
     }
 
+    private fun searchApiData(searchQury: String) {
+        showShimmerEffect()
+        mainViewModel.searchRecipes(recipesViewModel.applySearchQuery(searchQury))
+        mainViewModel.searchRecipesResponse.observe(viewLifecycleOwner, { response ->
+            when (response) {
+                is NetworkResult.Success -> {
+                    hideShimmerEffect()
+                    val foodRecipe = response.data
+                    foodRecipe?.let { recipesAdapter.setData(it) }
+                }
+                is NetworkResult.Error -> {
+                    hideShimmerEffect()
+                    loadDataFromCache()
+                    Toast.makeText(
+                        requireContext(),
+                        response.message.toString(),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                is NetworkResult.Loading -> {
+                    showShimmerEffect()
+                }
+            }
+        })
+    }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.recipes_menu, menu)
 
@@ -137,6 +166,9 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
     }
 
     override fun onQueryTextSubmit(query: String?): Boolean {
+        if (query != null) {
+            searchApiData(query)
+        }
         return true
     }
 
