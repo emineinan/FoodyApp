@@ -46,7 +46,10 @@ class RecipesFragment : Fragment() {
         _binding = FragmentRecipesBinding.inflate(inflater, container, false)
 
         setAdapter()
-        readDatabase()
+
+        recipesViewModel.readBackOnline.observe(viewLifecycleOwner, {
+            recipesViewModel.backOnline = it
+        })
 
         lifecycleScope.launch {
             networkListener = NetworkListener()
@@ -54,6 +57,7 @@ class RecipesFragment : Fragment() {
                 Log.d("NetworkListener", status.toString())
                 recipesViewModel.networkStatus = status
                 recipesViewModel.showNetworkStatus()
+                readDatabase()
             }
         }
 
@@ -72,8 +76,8 @@ class RecipesFragment : Fragment() {
         lifecycleScope.launch {
             mainViewModel.readRecipes.observeOnce(viewLifecycleOwner, { database ->
                 if (database.isNotEmpty() && !args.backFromBottomSheet) {
-                    Log.d("Recipes Fragment", "readDatabase called!")
-                    recipesAdapter.setData(database[0].foodRecipe)
+                    Log.d("RecipesFragment", "readDatabase called!")
+                    recipesAdapter.setData(database.first().foodRecipe)
                     hideShimmerEffect()
                 } else {
                     requestApiData()
