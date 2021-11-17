@@ -33,5 +33,6 @@
     
     <string name="hello_blank_fragment">Hello</string>
     <string name="search">Search</string>
+    <string name="details">Details</string>
 
 </resources>
