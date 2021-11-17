@@ -1,4 +1,4 @@
-package com.example.foody.view.fragments
+package com.example.foody.view.fragments.favorites
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -11,7 +11,7 @@ import androidx.navigation.findNavController
 import coil.load
 import com.example.foody.R
 import com.example.foody.models.Result
-import com.example.foody.view.fragments.RecipesFragmentDirections
+import com.example.foody.view.fragments.recipes.RecipesFragmentDirections
 
 class RecipesRowBinding {
 

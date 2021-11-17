@@ -1,4 +1,4 @@
-package com.example.foody.view.fragments.bottomsheet
+package com.example.foody.view.fragments.recipes.bottomsheet
 
 import android.os.Bundle
 import android.util.Log
@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.asLiveData
 import androidx.navigation.fragment.findNavController
-import com.example.foody.R
 import com.example.foody.databinding.RecipesBottomSheetBinding
 import com.example.foody.util.Constants.Companion.DEFAULT_DIET_TYPE
 import com.example.foody.util.Constants.Companion.DEFAULT_MEAL_TYPE
@@ -17,7 +16,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import dagger.hilt.android.AndroidEntryPoint
-import java.lang.Exception
 import java.util.*
 
 @AndroidEntryPoint

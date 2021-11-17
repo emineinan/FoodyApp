@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightGray"
-    tools:context=".view.fragments.FoodJokeFragment">
+    tools:context=".view.fragments.foodjoke.FoodJokeFragment">
 
     <TextView
         android:layout_width="match_parent"
