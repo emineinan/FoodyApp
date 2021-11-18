@@ -35,4 +35,8 @@
     <string name="search">Search</string>
     <string name="details">Details</string>
 
+    <string name="cheap">Cheap</string>
+    <string name="healthy">Healthy</string>
+    <string name="dairy_free">Dairy Free</string>
+
 </resources>
