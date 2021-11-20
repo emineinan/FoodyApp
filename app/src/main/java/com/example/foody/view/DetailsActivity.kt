@@ -9,6 +9,8 @@ import androidx.navigation.navArgs
 import com.example.foody.R
 import com.example.foody.adapters.PagerAdapter
 import com.example.foody.databinding.ActivityDetailsBinding
+import com.example.foody.util.Constants
+import com.example.foody.util.Constants.Companion.RECIPE_RESULT
 import com.example.foody.view.fragments.ingredients.IngredientsFragment
 import com.example.foody.view.fragments.instructions.InstructionsFragment
 import com.example.foody.view.fragments.overview.OverviewFragment
@@ -39,7 +41,7 @@ class DetailsActivity : AppCompatActivity() {
         titles.add("Instructions")
 
         val resultBundle = Bundle()
-        resultBundle.putParcelable("recipeBundle", args.result)
+        resultBundle.putParcelable(RECIPE_RESULT, args.result)
 
         val pagerAdapter = PagerAdapter(
             resultBundle,

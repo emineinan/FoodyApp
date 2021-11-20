@@ -6,6 +6,8 @@ class Constants {
         const val API_KEY = "968eb0f91935470fa80d9c090f29316e"
         const val BASE_IMAGE_URL = "https://spoonacular.com/cdn/ingredients_100x100/"
 
+        const val RECIPE_RESULT = "recipeBundle"
+
         // API Query Keys
         const val QUERY_SEARCH = "query"
         const val QUERY_NUMBER = "number"
