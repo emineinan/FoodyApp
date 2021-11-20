@@ -24,5 +24,8 @@
 
     <color name="actionBarBackgroundColor">@color/colorPrimary</color>
     <color name="start_color">#80000000</color>
+    <color name="strokeColor">@color/lightMediumGray</color>
+    <color name="cardBackgroundColor">@color/white</color>
+    <color name="titleColor">@color/darker</color>
 
 </resources>
