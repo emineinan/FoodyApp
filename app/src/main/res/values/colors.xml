@@ -26,6 +26,7 @@
     <color name="start_color">#80000000</color>
     <color name="strokeColor">@color/lightMediumGray</color>
     <color name="cardBackgroundColor">@color/white</color>
+    <color name="cardBackgroundLightColor">#506200EA</color>
     <color name="titleColor">@color/darker</color>
 
     //Contextual Bar
