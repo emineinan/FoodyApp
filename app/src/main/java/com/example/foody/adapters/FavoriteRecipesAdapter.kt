@@ -1,17 +1,20 @@
 package com.example.foody.adapters
 
-import android.view.LayoutInflater
-import android.view.ViewGroup
+import android.view.*
+import androidx.fragment.app.FragmentActivity
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.foody.R
 import com.example.foody.data.database.entities.FavoritesEntity
 import com.example.foody.databinding.FavoriteRecipesRowLayoutBinding
 import com.example.foody.util.RecipesDiffUtil
 import com.example.foody.view.fragments.favorites.FavoriteRecipesFragmentDirections
 
-class FavoriteRecipesAdapter : RecyclerView.Adapter<FavoriteRecipesAdapter.MyViewHolder>() {
+class FavoriteRecipesAdapter(private val requireActivity: FragmentActivity) :
+    RecyclerView.Adapter<FavoriteRecipesAdapter.MyViewHolder>(),
+    ActionMode.Callback {
 
     private var favoriteRecipes = emptyList<FavoritesEntity>()
 
@@ -48,6 +51,12 @@ class FavoriteRecipesAdapter : RecyclerView.Adapter<FavoriteRecipesAdapter.MyVie
                 )
             holder.itemView.findNavController().navigate(action)
         }
+
+        //Long click listener
+        holder.binding.favoriteRecipesRowLayout.setOnLongClickListener {
+            requireActivity.startActionMode(this)
+            true
+        }
     }
 
     override fun getItemCount(): Int {
@@ -59,5 +68,22 @@ class FavoriteRecipesAdapter : RecyclerView.Adapter<FavoriteRecipesAdapter.MyVie
         val diffUtilResult = DiffUtil.calculateDiff(favoriteRecipesDiffUtil)
         favoriteRecipes = newFavoriteRecipes
         diffUtilResult.dispatchUpdatesTo(this)
+    }
+
+    override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean {
+        mode?.menuInflater?.inflate(R.menu.favorites_contextual_menu, menu)
+        return true
+    }
+
+    override fun onPrepareActionMode(mode: ActionMode?, menu: Menu?): Boolean {
+        return true
+    }
+
+    override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
+        return true
+    }
+
+    override fun onDestroyActionMode(mode: ActionMode?) {
+        TODO("Not yet implemented")
     }
 }
