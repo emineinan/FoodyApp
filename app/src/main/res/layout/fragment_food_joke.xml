@@ -18,6 +18,8 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardViewFoodJoke"
+            readApiResponse3="@{mainViewModel.foodJokeResponse}"
+            readDatabase3="@{mainViewModel.readFoodJoke}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -59,16 +61,18 @@
         <ProgressBar
             android:id="@+id/progressBarFoodJoke"
             style="?android:attr/progressBarStyle"
+            readApiResponse3="@{mainViewModel.foodJokeResponse}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
             android:id="@+id/imageViewFoodJokeError"
+            readApiResponse4="@{mainViewModel.foodJokeResponse}"
+            readDatabase4="@{mainViewModel.readFoodJoke}"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:alpha="0.5"
@@ -83,11 +87,12 @@
 
         <TextView
             android:id="@+id/textViewFoodJokeError"
+            readApiResponse4="@{mainViewModel.foodJokeResponse}"
+            readDatabase4="@{mainViewModel.readFoodJoke}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:alpha="0.5"
-            android:text="Error"
             android:textSize="18sp"
             android:textStyle="bold"
             android:visibility="invisible"
