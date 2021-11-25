@@ -8,7 +8,6 @@ import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import com.example.foody.databinding.FragmentInstructionsBinding
 import com.example.foody.models.Result
-import com.example.foody.util.Constants
 import com.example.foody.util.Constants.Companion.RECIPE_RESULT
 
 class InstructionsFragment : Fragment() {
@@ -18,7 +17,7 @@ class InstructionsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentInstructionsBinding.inflate(inflater, container, false)
 
         val args = arguments
@@ -29,5 +28,10 @@ class InstructionsFragment : Fragment() {
         binding.webViewInstructions.loadUrl(websiteUrl)
 
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -20,7 +20,7 @@ class IngredientsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentIngredientsBinding.inflate(inflater, container, false)
 
         val args = arguments
@@ -35,5 +35,10 @@ class IngredientsFragment : Fragment() {
     private fun setAdapter() {
         binding.recyclerviewIngredients.adapter = ingredientsAdapter
         binding.recyclerviewIngredients.layoutManager = LinearLayoutManager(requireContext())
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
