@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EA</color>
-    <color name="colorPrimaryDark">#5502C8</color>
-    <color name="colorAccent">#9D46FF</color>
+    <color name="colorPrimary">#2C44D1</color>
+    <color name="colorPrimaryDark">#132FCF</color>
+    <color name="colorAccent">#596ACA</color>
 
     <color name="white">#FFFFFF</color>
     <color name="lightGray">#F9F9F9</color>
@@ -26,7 +26,7 @@
     <color name="start_color">#80000000</color>
     <color name="strokeColor">@color/lightMediumGray</color>
     <color name="cardBackgroundColor">@color/white</color>
-    <color name="cardBackgroundLightColor">#506200EA</color>
+    <color name="cardBackgroundLightColor">#80132FCF</color>
     <color name="titleColor">@color/darker</color>
 
     //Contextual Bar
